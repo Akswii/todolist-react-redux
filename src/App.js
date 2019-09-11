@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import TodoList from "./Components/TodoList";
+import TodoList from "./components/TodoList";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -9,11 +9,11 @@ function App() {
             <header className="App-header">
                 <h1>My Todolist!</h1>
             </header>
-            <body>
+            <main>
                 <div className="container mt-3">
                     <TodoList />
                 </div>
-            </body>
+            </main>
         </>
     );
 }

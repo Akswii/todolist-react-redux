@@ -1,21 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import TodoItem from "./TodoItem";
 import AddTodo from "./AddTodo";
 
-const TodoList = ({ listItems }) => {
-    const mockData = [
-        {
-            content: "My title",
-            completed: false
-        },
-    ]
+const mapStateToProps = store => store;
+
+const TodoList = (store) => {
+    const allTodos = store.todos;
 
     return (
         <>
             <ul className="list-group">
-                {listItems
-                    ? listItems.map((listItem, index) => <TodoItem key={index} content={listItem.content} />)
-                    : mockData.map((mockDataItem, index) => <TodoItem key={index} content={mockDataItem.content} />)
+                {
+                    allTodos.map((todo, index) =>
+                        <TodoItem
+                            key={index}
+                            id={index}
+                            onClick={todo.onClick}
+                            text={todo.text}
+                            completed={todo.completed}
+                        />
+                    )
                 }
             </ul>
             <AddTodo />
@@ -23,4 +29,4 @@ const TodoList = ({ listItems }) => {
     );
 };
 
-export default TodoList;
+export default connect(mapStateToProps)(TodoList);

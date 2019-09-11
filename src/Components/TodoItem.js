@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
-const TodoItem = ({ content, completed }) => (
-    <li className="list-group-item">
-        <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="customCheck1" />
-            <label class="custom-control-label" for="customCheck1">{content}</label>
-        </div>
-    </li>
-);
+import { connect } from "react-redux";
+import { toggleTodo } from "../redux/actions";
 
-export default TodoItem;
+const TodoItem = (props) => {
+    const handleClick = () => {
+        props.toggleTodo(props.id);
+    };
+
+    return (
+        <li className="list-group-item" onClick={handleClick}>
+            <div className="custom-control custom-checkbox">
+                <input type="checkbox" className="custom-control-input" id={`todo-check-${props.id}`} />
+                <label className="custom-control-label" htmlFor={`todo-check-${props.id}`}>{props.text}</label>
+            </div>
+        </li>
+    );
+}
+export default connect(null, { toggleTodo })(TodoItem);
