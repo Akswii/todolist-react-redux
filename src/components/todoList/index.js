@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import TodoItem from "../todoItem";
 import AddTodo from "../addTodo";
 
-const mapStateToProps = store => store;
+const mapStateToProps = state => state;
 
-const TodoList = (store) => {
-    const allTodos = store.todos;
+const TodoList = (state) => {
+    const allTodos = state.todos;
 
     return (
         <>
@@ -16,8 +16,7 @@ const TodoList = (store) => {
                     allTodos.map((todo, index) =>
                         <TodoItem
                             key={index}
-                            id={index}
-                            onClick={todo.onClick}
+                            id={todo.id}
                             text={todo.text}
                             completed={todo.completed}
                         />
