@@ -11,7 +11,6 @@ const todos = (state = [], action) => {
             ]
         case "TOGGLE_TODO":
             return state.map(todo => {
-                console.log(action);
                 return todo.id === action.id ? { ...todo, completed: !todo.completed } : todo;
             })
         default:

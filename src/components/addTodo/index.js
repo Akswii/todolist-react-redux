@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { connect } from "react-redux";
-import { addTodo } from "../redux/actions";
+import { addTodo } from "../../redux/actions";
 
 const AddTodo = (props) => {
     const [input, setInput] = useState("");

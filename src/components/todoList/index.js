@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import TodoItem from "./TodoItem";
-import AddTodo from "./AddTodo";
+import TodoItem from "../todoItem";
+import AddTodo from "../addTodo";
 
 const mapStateToProps = store => store;
 
