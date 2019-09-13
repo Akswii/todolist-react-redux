@@ -2,7 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 
 import { connect } from "react-redux";
-import { deleteTodo } from "../../redux/actions"
+import { deleteTodo } from "../../../redux/actions"
 
 const DeleteTodo = (props) => {
     const handleDeleteTodo = () => {
