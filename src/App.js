@@ -5,17 +5,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 // Custom components
 import TodoList from "./components/todo_component/";
-
-const About = () => (
-    <div>
-        <h2>
-            This is my About page
-        </h2>
-        <p>
-            Hello people
-        </p>
-    </div>
-);
+import About from "./components/about";
 
 function App() {
     return (

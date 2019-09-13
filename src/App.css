@@ -3,10 +3,12 @@
     align-items: center;
     flex-direction: row;
     margin-bottom: 2rem;
+    border-bottom: 1px solid #efefef;
 }
 
 .myHeader h3 {
     flex-grow: 1;
+    margin: 0;
 }
 
 .myHeader ul {
