@@ -8,9 +8,7 @@ const AddTodo = (props) => {
 
     const updateInput = (val) => setInput(val);
 
-    const handleAddTodo = () => {
-        props.addTodo(input);
-    }
+    const handleAddTodo = () => input ? props.addTodo(input) : null
 
     return (
         <div className="input-group mt-3">
@@ -23,7 +21,7 @@ const AddTodo = (props) => {
             />
             <div className="input-group-append">
                 <button
-                    className="btn btn-outline-secondary"
+                    className="btn btn-outline-primary"
                     type="button"
                     id="button-addon2"
                     onClick={handleAddTodo}
