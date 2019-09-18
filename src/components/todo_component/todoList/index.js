@@ -3,18 +3,31 @@ import { connect } from "react-redux";
 
 import TodoItem from "../todoItem";
 import AddTodo from "../addTodo";
+import FilterTodos from "../filterTodos";
 
-const mapStateToProps = state => state;
+const mapStateToProps = state => ({ todos: state.todoApp.todos, visibilityFilter: state.todoApp.visibilityFilter });
 
-const TodoList = (state) => {
-    const allTodos = state.todos;
+const TodoList = ({ todos, visibilityFilter }) => {
+    const getFilteredTodos = () => {
+        switch (visibilityFilter) {
+            case "SHOW_COMPLETE":
+                return todos.filter(todo => todo.completed === true);
+            case "SHOW_INCOMPLETE":
+                return todos.filter(todo => todo.completed === false);
+            default:
+                return todos;
+        }
+    }
 
     return (
         <>
-            <h4>Todos</h4>
-            <ul className="list-group">
+            <div className="row no-gutters">
+                <h4 className="d-flex flex-grow-1">Todos</h4>
+                <FilterTodos />
+            </div>
+            <ul className="list-group mt-3">
                 {
-                    allTodos.map((todo, index) =>
+                    getFilteredTodos(todos).map((todo, index) =>
                         <TodoItem
                             key={index}
                             id={todo.id}
