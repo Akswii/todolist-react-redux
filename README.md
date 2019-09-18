@@ -5,4 +5,4 @@
 - Use redux for state management
     - ~~Todo list content~~
     - ~~Manage todo list complete/incomplete state~~
-    - Add todo list filters
+    - ~~Add todo list filters~~
